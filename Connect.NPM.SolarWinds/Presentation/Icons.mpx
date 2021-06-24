@@ -1,0 +1,28 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Categories>
+    <Category ID="Connect.NPM.SolarWinds.ArubaController.Category" Target="Connect.NPM.SolarWinds.ArubaController.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.NPM.SolarWinds.CoreSwitch.Category" Target="Connect.NPM.SolarWinds.CoreSwitch.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.NPM.SolarWinds.Switch.Category" Target="Connect.NPM.SolarWinds.Switch.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.NPM.SolarWinds.Router.Category" Target="Connect.NPM.SolarWinds.Router.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.NPM.SolarWinds.FireWall.Category" Target="Connect.NPM.SolarWinds.FireWall.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.NPM.SolarWinds.OtherDevice.Category" Target="Connect.NPM.SolarWinds.OtherDevice.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+  </Categories>
+  <Presentation>
+    <ImageReferences>
+      <ImageReference ElementID="Connect.NPM.SolarWinds.ArubaController" ImageID="Connect.NPM.SolarWinds.ArubaController.Icon"/>
+      <ImageReference ElementID="Connect.NPM.SolarWinds.CoreSwitch" ImageID="Connect.NPM.SolarWinds.CoreSwitch.Icon"/>
+      <ImageReference ElementID="Connect.NPM.SolarWinds.Switch" ImageID="Connect.NPM.SolarWinds.Switch.Icon"/>
+      <ImageReference ElementID="Connect.NPM.SolarWinds.Router" ImageID="Connect.NPM.SolarWinds.Router.Icon"/>
+      <ImageReference ElementID="Connect.NPM.SolarWinds.FireWall" ImageID="Connect.NPM.SolarWinds.FireWall.Icon"/>
+      <ImageReference ElementID="Connect.NPM.SolarWinds.OtherDevice" ImageID="Connect.NPM.SolarWinds.OtherDevice.Icon"/>
+    </ImageReferences>
+  </Presentation>
+  <Resources>
+    <Image ID="Connect.NPM.SolarWinds.ArubaController.Icon" FileName="NetworkSolarWindsAurba.png" Accessibility="Public" HasNullStream="false" Comment="Aruba Controller" />
+    <Image ID="Connect.NPM.SolarWinds.CoreSwitch.Icon" FileName="NetworkSolarWindsCoreSwitch.png" Accessibility="Public" HasNullStream="false" Comment="Core Switch" />
+    <Image ID="Connect.NPM.SolarWinds.Switch.Icon" FileName="NetworkSolarWindsSwitch.png" Accessibility="Public" HasNullStream="false" Comment="Switch" />
+    <Image ID="Connect.NPM.SolarWinds.Router.Icon" FileName="NetworkSolarWindsRouter.png" Accessibility="Public" HasNullStream="false" Comment="Router" />
+    <Image ID="Connect.NPM.SolarWinds.FireWall.Icon" FileName="NetworkSolarWindsFireWall.png" Accessibility="Public" HasNullStream="false" Comment="FireWall" />
+    <Image ID="Connect.NPM.SolarWinds.OtherDevice.Icon" FileName="NetworkSolarWindsOtherDevice.png" Accessibility="Public" HasNullStream="false" Comment="Other Device" />
+  </Resources>
+</ManagementPackFragment>

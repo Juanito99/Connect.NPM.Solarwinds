@@ -1,0 +1,203 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+
+        <ClassType ID="Connect.NPM.SolarWinds.Node" Accessibility="Public" Abstract="true" Base="System!System.LogicalEntity" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="NodeID" Type="string" AutoIncrement="false" Key="true" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="Caption" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="NodeName" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="IPAddress" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="IP" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="NodeDescription" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="Description" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="DNS" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="Vendor" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="Contact" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="Location" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="SysObjectID" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="ObjectSubType" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="MachineType" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="LastBoot" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="IOSImage" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="IOSVersion" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="CPUCount" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="TotalMemory" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="AgentPort" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="SNMPVersion" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="Community" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+        </ClassType>
+ 
+        <ClassType ID="Connect.NPM.SolarWinds.Switch" Accessibility="Public" Abstract="false" Base="Connect.NPM.SolarWinds.Node" Hosted="false" Singleton="false" Extension="false" />
+        <ClassType ID="Connect.NPM.SolarWinds.CoreSwitch" Accessibility="Public" Abstract="false" Base="Connect.NPM.SolarWinds.Node" Hosted="false" Singleton="false" Extension="false" />
+        <ClassType ID="Connect.NPM.SolarWinds.ArubaController" Accessibility="Public" Abstract="false" Base="Connect.NPM.SolarWinds.Node" Hosted="false" Singleton="false" Extension="false" />
+        <ClassType ID="Connect.NPM.SolarWinds.Router" Accessibility="Public" Abstract="false" Base="Connect.NPM.SolarWinds.Node" Hosted="false" Singleton="false" Extension="false" />
+        <ClassType ID="Connect.NPM.SolarWinds.FireWall" Accessibility="Public" Abstract="false" Base="Connect.NPM.SolarWinds.Node" Hosted="false" Singleton="false" Extension="false" />
+        <ClassType ID="Connect.NPM.SolarWinds.OtherDevice" Accessibility="Public" Abstract="false" Base="Connect.NPM.SolarWinds.Node" Hosted="false" Singleton="false" Extension="false" />
+        <ClassType ID="Connect.NPM.SolarWinds.ICMPEndPoint" Accessibility="Public" Abstract="false" Base="Connect.NPM.SolarWinds.Node" Hosted="false" Singleton="false" Extension="false" />
+
+        <ClassType ID="Connect.NPM.SolarWinds.MonitoringServer" Accessibility="Public" Abstract="false"  Base="Windows!Microsoft.Windows.ComputerRole" Hosted="true" Singleton="false" Extension="false">
+          <Property ID="NPMServerName" Type="string" AutoIncrement="false" Key="true" CaseSensitive="false"  Required="false" Scale="0" />
+          <Property ID="NPMInformationServiceURL" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false"  Required="false" Scale="0" />
+          <Property ID="NPMServerPort" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false"  Required="false" Scale="0" />
+          <Property ID="NPMServerProtocoll" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false"  Required="false" Scale="0" />
+          <Property ID="NPMRegPath" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false"  Required="false" Scale="0" />
+        </ClassType>
+
+      </ClassTypes>
+      
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node">
+          <Name>Node</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="AgentPort">
+          <Name>AgentPort</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="Caption">
+          <Name>Caption</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="Community">
+          <Name>Community</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="Contact">
+          <Name>Contact</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="CPUCount">
+          <Name>CPUCount</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="Description">
+          <Name>Description</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="DNS">
+          <Name>DNS</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="IOSImage">
+          <Name>IOSImage</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="IOSVersion">
+          <Name>IOSVersion</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="IP">
+          <Name>IP</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="IPAddress">
+          <Name>IPAddress</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="LastBoot">
+          <Name>LastBoot</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="Location">
+          <Name>Location</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="MachineType">
+          <Name>MachineType</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="NodeDescription">
+          <Name>NodeDescription</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="NodeID">
+          <Name>NodeID</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="NodeName">
+          <Name>NodeName</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="ObjectSubType">
+          <Name>ObjectSubType</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="SNMPVersion">
+          <Name>SNMPVersion</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="SysObjectID">
+          <Name>SysObjectID</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="TotalMemory">
+          <Name>TotalMemory</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Node" SubElementID="Vendor">
+          <Name>Vendor</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.FireWall">
+          <Name>FireWall</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Router">
+          <Name>Router</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.Switch">
+          <Name>Switch</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.CoreSwitch">
+          <Name>CoreSwitch</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.OtherDevice">
+          <Name>OtherDevice</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.ArubaController">
+          <Name>ArubaController</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.ICMPEndPoint">
+          <Name>ICMPEndPoint</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.MonitoringServer">
+          <Name>MonitoringServer</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.MonitoringServer" SubElementID="NPMServerName">
+          <Name>NPMServerName</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.MonitoringServer" SubElementID="NPMInformationServiceURL">
+          <Name>NPMInformationServiceURL</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.MonitoringServer" SubElementID="NPMServerPort">
+          <Name>NPMServerPort</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.MonitoringServer" SubElementID="NPMServerProtocoll">
+          <Name>NPMServerProtocoll</Name>          
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.NPM.SolarWinds.MonitoringServer" SubElementID="NPMRegPath">
+          <Name>NPMRegPath</Name>          
+        </DisplayString>
+
+      </DisplayStrings>
+
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

@@ -1,0 +1,74 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instancea87077c8a051451aad3a3dfc2e456b0f" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.Connect.NPM.SolarWinds.MonitoringServer</Id>
+        <DisplayName>Discover.NPM.MonitoringServer</DisplayName>
+        <Description>Description for the new discovery.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;ComputerName&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;KeyExists&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\ABCIT\NPMMonitoringServer&lt;/Path&gt;&lt;PathType&gt;0&lt;/PathType&gt;&lt;AttributeType&gt;0&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;NPMServerName&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\ABCIT\NPMMonitoringServer\NPMServerName&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;NPMInformationServiceURL&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\ABCIT\NPMMonitoringServer\NPMInformationServiceURL&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;NPMServerPort&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\ABCIT\NPMMonitoringServer\NPMServerPort&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;NPMServerProtocoll&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\ABCIT\NPMMonitoringServer\NPMServerProtocoll&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;86400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="Connect.NPM.SolarWinds.MonitoringServer"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Connect.NPM.SolarWinds.MonitoringServer"]/NPMServerName$&lt;/Name&gt;&lt;Value&gt;$Data/Values/NPMServerName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Connect.NPM.SolarWinds.MonitoringServer"]/NPMInformationServiceURL$&lt;/Name&gt;&lt;Value&gt;$Data/Values/NPMInformationServiceURL$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Connect.NPM.SolarWinds.MonitoringServer"]/NPMServerPort$&lt;/Name&gt;&lt;Value&gt;$Data/Values/NPMServerPort$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Connect.NPM.SolarWinds.MonitoringServer"]/NPMServerProtocoll$&lt;/Name&gt;&lt;Value&gt;$Data/Values/NPMServerProtocoll$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Connect.NPM.SolarWinds.MonitoringServer"]/NPMRegPath$&lt;/Name&gt;&lt;Value&gt;SOFTWARE\ABCIT\NPMMonitoringServer&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery&gt;Values/KeyExists&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.FilteredRegistryDiscoveryProvider</DataSourceType>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>Connect.NPM.SolarWinds.MonitoringServer</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance20731b4b2db146a49c14ec14863f37da" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discover.NPM.Devices.Objects</Id>
+        <DisplayName>Discover.NPM.Devices.Objects</DisplayName>
+        <Description>Description for the new discovery.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;SwitchNamePattern&gt;[a-zA-Z\-_0-9\.]{5,5}sw|SW&lt;/SwitchNamePattern&gt;&lt;CoreSwitchNamePattern&gt;[a-zA-Z\-_0-9]{5}CS|cs&lt;/CoreSwitchNamePattern&gt;&lt;ArubaControllerNamePattern&gt;(?i)[a-zA-Z\-_0-9\.]{5,5}ARUBA&lt;/ArubaControllerNamePattern&gt;&lt;RouterNamePattern&gt;[a-zA-Z-_0-9\.]*VPN|[a-zA-Z-_0-9\.]*GW|[a-zA-Z\-_0-9\.]*MPLS&lt;/RouterNamePattern&gt;&lt;FireWallNamePattern&gt;[a-zA-Z\-_0-9\.]{5,5}fw|FW&lt;/FireWallNamePattern&gt;&lt;OtherDeviceNamePattern&gt;otherdevice&lt;/OtherDeviceNamePattern&gt;&lt;ICMPEndPointNamePattern&gt;wildcard&lt;/ICMPEndPointNamePattern&gt;</DataSourceConfig>
+        <DataSourceType>Connect.NPM.SolarWinds.DataSource</DataSourceType>
+        <Target>Connect.NPM.SolarWinds.MonitoringServer</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>Connect.NPM.SolarWinds.ArubaController</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+          <DiscoveryClassItem>
+            <TypeId>Connect.NPM.SolarWinds.CoreSwitch</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+          <DiscoveryClassItem>
+            <TypeId>Connect.NPM.SolarWinds.FireWall</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+          <DiscoveryClassItem>
+            <TypeId>Connect.NPM.SolarWinds.ICMPEndPoint</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+          <DiscoveryClassItem>
+            <TypeId>Connect.NPM.SolarWinds.OtherDevice</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+          <DiscoveryClassItem>
+            <TypeId>Connect.NPM.SolarWinds.Router</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+          <DiscoveryClassItem>
+            <TypeId>Connect.NPM.SolarWinds.Switch</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

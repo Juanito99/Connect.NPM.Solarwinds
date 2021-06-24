@@ -1,0 +1,86 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <ModuleTypes>
+      <DataSourceModuleType ID="Connect.NPM.SolarWinds.DataSource" Accessibility="Internal" Batching="false">
+        <Configuration>
+          <xsd:element minOccurs="0" name="SwitchNamePattern" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="0" name="CoreSwitchNamePattern" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="0" name="ArubaControllerNamePattern" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="0" name="RouterNamePattern" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="0" name="FireWallNamePattern" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="0" name="OtherDeviceNamePattern" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element minOccurs="0" name="ICMPEndPointNamePattern" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="SwitchNamePattern" Selector="$Config/SwitchNamePattern$" ParameterType="string" />
+          <OverrideableParameter ID="CoreSwitchNamePattern" Selector="$Config/CoreSwitchNamePattern$" ParameterType="string" />
+          <OverrideableParameter ID="ArubaControllerNamePattern" Selector="$Config/ArubaControllerNamePattern$" ParameterType="string" />
+          <OverrideableParameter ID="RouterNamePattern" Selector="$Config/ArubaControllerNamePattern$" ParameterType="string" />
+          <OverrideableParameter ID="FireWallNamePattern" Selector="$Config/FireWallNamePattern$" ParameterType="string" />
+          <OverrideableParameter ID="OtherDeviceNamePattern" Selector="$Config/OtherDeviceNamePattern$" ParameterType="string" />
+          <OverrideableParameter ID="ICMPEndPointNamePattern" Selector="$Config/ICMPEndPointNamePattern$" ParameterType="string" />
+        </OverrideableParameters>
+        <ModuleImplementation Isolation="Any">
+          <Composite>
+            <MemberModules>
+              <DataSource ID="DS" TypeID="Windows!Microsoft.Windows.TimedPowerShell.DiscoveryProvider">
+                <IntervalSeconds>3700</IntervalSeconds>
+                <SyncTime></SyncTime>
+                <ScriptName>DiscoverNPMNodes.ps1</ScriptName>
+                <ScriptBody>$IncludeFileContent/Service Model/Discoveries/DiscoverNPMNodes.ps1$</ScriptBody>
+                <Parameters>
+                  <Parameter>
+                    <Name>sourceId</Name>
+                    <Value>$MPElement$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>managedEntityId</Name>
+                    <Value>$Target/Id$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>npmRegPath</Name>
+                    <Value>$Target/Property[Type="Connect.NPM.SolarWinds.MonitoringServer"]/NPMRegPath$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>SwitchNamePattern</Name>
+                    <Value>$Config/SwitchNamePattern$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>CoreSwitchNamePattern</Name>
+                    <Value>$Config/CoreSwitchNamePattern$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>ArubaControllerNamePattern</Name>
+                    <Value>$Config/ArubaControllerNamePattern$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>RouterNamePattern</Name>
+                    <Value>$Config/RouterNamePattern$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>FireWallNamePattern</Name>
+                    <Value>$Config/FireWallNamePattern$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>OtherDeviceNamePattern</Name>
+                    <Value>$Config/OtherDeviceNamePattern$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>ICMPEndPointNamePattern</Name>
+                    <Value>$Config/ICMPEndPointNamePattern$</Value>
+                  </Parameter>
+                </Parameters>
+                <TimeoutSeconds>300</TimeoutSeconds>
+              </DataSource>
+            </MemberModules>
+            <Composition>
+              <Node ID="DS" />
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.Discovery.Data</OutputType>
+      </DataSourceModuleType>
+
+    </ModuleTypes>
+  </TypeDefinitions>
+</ManagementPackFragment>

@@ -1,0 +1,291 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instance1a7c7745500d40059cc88991df18433a" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Connect.NPM.SolarWinds.TestNodeAdv.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;360&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;ICMPEndPoint&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="Connect.NPM.SolarWinds.Node"]/NodeID$&lt;/Key&gt;&lt;Threshold&gt;10&lt;/Threshold&gt;&lt;SwitchNamePattern&gt;Caption LIKE '%SW%' OR Caption LIKE '%SR%'&lt;/SwitchNamePattern&gt;&lt;CoreSwitchNamePattern&gt;Caption LIKE '%CS%'&lt;/CoreSwitchNamePattern&gt;&lt;ArubaControllerNamePattern&gt;Caption LIKE '%aruba%'&lt;/ArubaControllerNamePattern&gt;&lt;RouterNamePattern&gt;Caption LIKE '%VPN%' OR Caption LIKE '%GW%' OR Caption LIKE '%MPLS%' OR Caption LIKE '%RT%' OR Caption LIKE '%Plant360%'&lt;/RouterNamePattern&gt;&lt;FireWallNamePattern&gt;Caption LIKE '%fw%'&lt;/FireWallNamePattern&gt;&lt;OtherDeviceNamePattern&gt;Caption NOT LIKE '%SW%' AND Caption NOT LIKE %MPLS% AND Caption NOT LIKE '%cs%' AND Caption NOT LIKE '%aruba% AND Caption NOT LIKE '%VPN%' AND Caption NOT LIKE '%fw%'&lt;/OtherDeviceNamePattern&gt;&lt;ICMPEndPointNamePattern&gt;ObjectSubType = 'ICMP'&lt;/ICMPEndPointNamePattern&gt;&lt;NPMRegPath&gt;HKLM:\SOFTWARE\ABCIT\NPMMonitoringServer&lt;/NPMRegPath&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.NPM.IcmpEndPoint</Id>
+        <DisplayName>Monitor NPM IcmpEndPoint</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.NPM.SolarWinds.ICMPEndPoint</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance253fc4a590994fd7ab33b3222a7481f7" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Connect.NPM.SolarWinds.TestNodeAdv.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;380&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;Router&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="Connect.NPM.SolarWinds.Node"]/NodeID$&lt;/Key&gt;&lt;Threshold&gt;10&lt;/Threshold&gt;&lt;SwitchNamePattern&gt;Caption LIKE '%SW%' OR Caption LIKE '%SR%'&lt;/SwitchNamePattern&gt;&lt;CoreSwitchNamePattern&gt;Caption LIKE '%CS%'&lt;/CoreSwitchNamePattern&gt;&lt;ArubaControllerNamePattern&gt;Caption LIKE '%aruba%'&lt;/ArubaControllerNamePattern&gt;&lt;RouterNamePattern&gt;Caption LIKE '%VPN%' OR Caption LIKE '%GW%' OR Caption LIKE '%MPLS%' OR Caption LIKE '%RT%' OR Caption LIKE '%Plant360%'&lt;/RouterNamePattern&gt;&lt;FireWallNamePattern&gt;Caption LIKE '%fw%'&lt;/FireWallNamePattern&gt;&lt;OtherDeviceNamePattern&gt;Caption NOT LIKE '%SW%' AND Caption NOT LIKE %MPLS% AND Caption NOT LIKE '%cs%' AND Caption NOT LIKE '%aruba% AND Caption NOT LIKE '%VPN%' AND Caption NOT LIKE '%fw%'&lt;/OtherDeviceNamePattern&gt;&lt;ICMPEndPointNamePattern&gt;ObjectSubType = 'ICMP'&lt;/ICMPEndPointNamePattern&gt;&lt;NPMRegPath&gt;HKLM:\SOFTWARE\ABCIT\NPMMonitoringServer&lt;/NPMRegPath&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.NPM.Router</Id>
+        <DisplayName>Monitor NPM Router</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.NPM.SolarWinds.Router</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance4628e4e39ff14fb5a574440447f70036" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Connect.NPM.SolarWinds.TestNodeAdv.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;370&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;CoreSwitch&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="Connect.NPM.SolarWinds.Node"]/NodeID$&lt;/Key&gt;&lt;Threshold&gt;10&lt;/Threshold&gt;&lt;SwitchNamePattern&gt;Caption LIKE '%SW%' OR Caption LIKE '%SR%'&lt;/SwitchNamePattern&gt;&lt;CoreSwitchNamePattern&gt;Caption LIKE '%CS%'&lt;/CoreSwitchNamePattern&gt;&lt;ArubaControllerNamePattern&gt;Caption LIKE '%aruba%'&lt;/ArubaControllerNamePattern&gt;&lt;RouterNamePattern&gt;Caption LIKE '%VPN%' OR Caption LIKE '%GW%' OR Caption LIKE '%MPLS%' OR Caption LIKE '%RT%' OR Caption LIKE '%Plant360%'&lt;/RouterNamePattern&gt;&lt;FireWallNamePattern&gt;Caption LIKE '%fw%'&lt;/FireWallNamePattern&gt;&lt;OtherDeviceNamePattern&gt;Caption NOT LIKE '%SW%' AND Caption NOT LIKE %MPLS% AND Caption NOT LIKE '%cs%' AND Caption NOT LIKE '%aruba% AND Caption NOT LIKE '%VPN%' AND Caption NOT LIKE '%fw%'&lt;/OtherDeviceNamePattern&gt;&lt;ICMPEndPointNamePattern&gt;ObjectSubType = 'ICMP'&lt;/ICMPEndPointNamePattern&gt;&lt;NPMRegPath&gt;HKLM:\SOFTWARE\ABCIT\NPMMonitoringServer&lt;/NPMRegPath&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.NPM.CoreSwitch</Id>
+        <DisplayName>Monitor NPM CoreSwitch</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.NPM.SolarWinds.CoreSwitch</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance7174c58e75724c41bd9208395b94eabd" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Connect.NPM.SolarWinds.TestNodeAdv.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;350&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;ArubaController&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="Connect.NPM.SolarWinds.Node"]/NodeID$&lt;/Key&gt;&lt;Threshold&gt;10&lt;/Threshold&gt;&lt;SwitchNamePattern&gt;Caption LIKE '%SW%' OR Caption LIKE '%SR%'&lt;/SwitchNamePattern&gt;&lt;CoreSwitchNamePattern&gt;Caption LIKE '%CS%'&lt;/CoreSwitchNamePattern&gt;&lt;ArubaControllerNamePattern&gt;Caption LIKE '%aruba%'&lt;/ArubaControllerNamePattern&gt;&lt;RouterNamePattern&gt;Caption LIKE '%VPN%' OR Caption LIKE '%GW%' OR Caption LIKE '%MPLS%' OR Caption LIKE '%RT%' OR Caption LIKE '%Plant360%'&lt;/RouterNamePattern&gt;&lt;FireWallNamePattern&gt;Caption LIKE '%fw%'&lt;/FireWallNamePattern&gt;&lt;OtherDeviceNamePattern&gt;Caption NOT LIKE '%SW%' AND Caption NOT LIKE %MPLS% AND Caption NOT LIKE '%cs%' AND Caption NOT LIKE '%aruba% AND Caption NOT LIKE '%VPN%' AND Caption NOT LIKE '%fw%'&lt;/OtherDeviceNamePattern&gt;&lt;ICMPEndPointNamePattern&gt;ObjectSubType = 'ICMP'&lt;/ICMPEndPointNamePattern&gt;&lt;NPMRegPath&gt;HKLM:\SOFTWARE\ABCIT\NPMMonitoringServer&lt;/NPMRegPath&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.NPM.ArubaController</Id>
+        <DisplayName>Monitor NPM ArubaController</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.NPM.SolarWinds.ArubaController</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instanceae528a77f2e54ce4af3922eebd94f291" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Connect.NPM.SolarWinds.TestNodeAdv.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;360&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;FireWall&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="Connect.NPM.SolarWinds.Node"]/NodeID$&lt;/Key&gt;&lt;Threshold&gt;10&lt;/Threshold&gt;&lt;SwitchNamePattern&gt;Caption LIKE '%SW%' OR Caption LIKE '%SR%'&lt;/SwitchNamePattern&gt;&lt;CoreSwitchNamePattern&gt;Caption LIKE '%CS%'&lt;/CoreSwitchNamePattern&gt;&lt;ArubaControllerNamePattern&gt;Caption LIKE '%aruba%'&lt;/ArubaControllerNamePattern&gt;&lt;RouterNamePattern&gt;Caption LIKE '%VPN%' OR Caption LIKE '%GW%' OR Caption LIKE '%MPLS%' OR Caption LIKE '%RT%' OR Caption LIKE '%Plant360%'&lt;/RouterNamePattern&gt;&lt;FireWallNamePattern&gt;Caption LIKE '%fw%'&lt;/FireWallNamePattern&gt;&lt;OtherDeviceNamePattern&gt;Caption NOT LIKE '%SW%' AND Caption NOT LIKE %MPLS% AND Caption NOT LIKE '%cs%' AND Caption NOT LIKE '%aruba% AND Caption NOT LIKE '%VPN%' AND Caption NOT LIKE '%fw%'&lt;/OtherDeviceNamePattern&gt;&lt;ICMPEndPointNamePattern&gt;ObjectSubType = 'ICMP'&lt;/ICMPEndPointNamePattern&gt;&lt;NPMRegPath&gt;HKLM:\SOFTWARE\ABCIT\NPMMonitoringServer&lt;/NPMRegPath&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.NPM.FireWall</Id>
+        <DisplayName>Monitor NPM FireWall</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.NPM.SolarWinds.FireWall</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance4d90c51492724df1b8fa3ce359455bdf" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Connect.NPM.SolarWinds.TestNodeAdv.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;360&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;Switch&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="Connect.NPM.SolarWinds.Node"]/NodeID$&lt;/Key&gt;&lt;Threshold&gt;10&lt;/Threshold&gt;&lt;SwitchNamePattern&gt;Caption LIKE '%SW%' OR Caption LIKE '%SR%'&lt;/SwitchNamePattern&gt;&lt;CoreSwitchNamePattern&gt;Caption LIKE '%CS%'&lt;/CoreSwitchNamePattern&gt;&lt;ArubaControllerNamePattern&gt;Caption LIKE '%aruba%'&lt;/ArubaControllerNamePattern&gt;&lt;RouterNamePattern&gt;Caption LIKE '%VPN%' OR Caption LIKE '%GW%' OR Caption LIKE '%MPLS%' OR Caption LIKE '%RT%' OR Caption LIKE '%Plant360%'&lt;/RouterNamePattern&gt;&lt;FireWallNamePattern&gt;Caption LIKE '%fw%'&lt;/FireWallNamePattern&gt;&lt;OtherDeviceNamePattern&gt;Caption NOT LIKE '%SW%' AND Caption NOT LIKE %MPLS% AND Caption NOT LIKE '%cs%' AND Caption NOT LIKE '%aruba% AND Caption NOT LIKE '%VPN%' AND Caption NOT LIKE '%fw%'&lt;/OtherDeviceNamePattern&gt;&lt;ICMPEndPointNamePattern&gt;ObjectSubType = 'ICMP'&lt;/ICMPEndPointNamePattern&gt;&lt;NPMRegPath&gt;HKLM:\SOFTWARE\ABCIT\NPMMonitoringServer&lt;/NPMRegPath&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.NPM.Switch</Id>
+        <DisplayName>Monitor NPM Switch</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.NPM.SolarWinds.Switch</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance8f61957af0cc429ea4330f42ccfd199e" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>Connect.NPM.SolarWinds.TestNodeAdv.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;360&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;MonitorItem&gt;otherdevice&lt;/MonitorItem&gt;&lt;Key&gt;$Target/Property[Type="Connect.NPM.SolarWinds.Node"]/NodeID$&lt;/Key&gt;&lt;Threshold&gt;10&lt;/Threshold&gt;&lt;SwitchNamePattern&gt;Caption LIKE '%SW%' OR Caption LIKE '%SR%'&lt;/SwitchNamePattern&gt;&lt;CoreSwitchNamePattern&gt;Caption LIKE '%CS%'&lt;/CoreSwitchNamePattern&gt;&lt;ArubaControllerNamePattern&gt;Caption LIKE '%aruba%'&lt;/ArubaControllerNamePattern&gt;&lt;RouterNamePattern&gt;Caption LIKE '%VPN%' OR Caption LIKE '%GW%' OR Caption LIKE '%MPLS%' OR Caption LIKE '%RT%' OR Caption LIKE '%Plant360%'&lt;/RouterNamePattern&gt;&lt;FireWallNamePattern&gt;Caption LIKE '%fw%'&lt;/FireWallNamePattern&gt;&lt;OtherDeviceNamePattern&gt;Caption NOT LIKE '%SW%' AND Caption NOT LIKE %MPLS% AND Caption NOT LIKE '%cs%' AND Caption NOT LIKE '%aruba% AND Caption NOT LIKE '%VPN%' AND Caption NOT LIKE '%fw%'&lt;/OtherDeviceNamePattern&gt;&lt;ICMPEndPointNamePattern&gt;ObjectSubType = 'ICMP'&lt;/ICMPEndPointNamePattern&gt;&lt;NPMRegPath&gt;HKLM:\SOFTWARE\ABCIT\NPMMonitoringServer&lt;/NPMRegPath&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.NPM.OtherDevice</Id>
+        <DisplayName>Monitor NPM OtherDevice</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.NPM.SolarWinds.OtherDevice</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>
