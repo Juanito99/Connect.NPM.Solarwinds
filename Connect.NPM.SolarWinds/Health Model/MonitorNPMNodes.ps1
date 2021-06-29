@@ -219,7 +219,7 @@ $npmQryRsp.results | ForEach-Object {
 	$supplement2 = " IP: $($nIP); Status: $($nStatus); Contact: $($nContact); Location: $($nLocation); LastBoot: $($nLastBoot)"
 	$displayName = $MonitorItem + "-" + $nCaption
 
-	#$api.LogScriptEvent('Connect.NPM.SolarWinds MonitorNPMNodes.ps1',6070,2,"MonitorNPMNodes SEND BAG Key: $($nNodeID) `n State: $($state) `n Caption: ($nCaption) `n Supplement: $($supplement) ")
+	$api.LogScriptEvent('Connect.NPM.SolarWinds MonitorNPMNodes.ps1',6070,2,"MonitorNPMNodes SEND BAG Key: $($nNodeID) `n State: $($state) `n Caption: ($nCaption) `n Supplement: $($supplement) ")
 	"MonitorNPMNodes SEND BAG Key:$($nNodeID);State:$($state);NodeCaption:$($nCaption);DisplayName:$($DisplayName);Supplement:$($supplement2);TesteadAt:$($testedAt) " | Out-File -FilePath $dbgLog -Append	
 	if ($error) { $error | Out-File -FilePath $dbgLog -Append }
 	
@@ -227,7 +227,7 @@ $npmQryRsp.results | ForEach-Object {
 	$nNodeID = $nNodeID -replace '\s',''
 	$nNodeID = $nNodeID -replace ' ',''
 	$nNodeID = $nNodeID.Trim()
-	
+		
 	$bag = $api.CreatePropertybag()					
 	$bag.AddValue("Key",$nNodeID)
 	$bag.AddValue("NodeID",$nNodeID)

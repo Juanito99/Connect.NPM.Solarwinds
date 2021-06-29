@@ -24,6 +24,29 @@
       </DiscoveryConfig>
     </Instance>
     <Instance ID="Instance20731b4b2db146a49c14ec14863f37da" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discover.NPM.Devices.Objects.Relations</Id>
+        <DisplayName>Discover.NPM.Devices.Objects.Relations</DisplayName>
+        <Description>Description for the new discovery.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;SwitchNamePattern&gt;[a-zA-Z\-_0-9\.]{5,5}sw|SW&lt;/SwitchNamePattern&gt;&lt;CoreSwitchNamePattern&gt;[a-zA-Z\-_0-9]{5}CS|cs&lt;/CoreSwitchNamePattern&gt;&lt;ArubaControllerNamePattern&gt;(?i)[a-zA-Z\-_0-9\.]{5,5}ARUBA&lt;/ArubaControllerNamePattern&gt;&lt;RouterNamePattern&gt;[a-zA-Z-_0-9\.]*VPN|[a-zA-Z-_0-9\.]*GW|[a-zA-Z\-_0-9\.]*MPLS&lt;/RouterNamePattern&gt;&lt;FireWallNamePattern&gt;[a-zA-Z\-_0-9\.]{5,5}fw|FW&lt;/FireWallNamePattern&gt;&lt;OtherDeviceNamePattern&gt;otherdevice&lt;/OtherDeviceNamePattern&gt;&lt;ICMPEndPointNamePattern&gt;wildcard&lt;/ICMPEndPointNamePattern&gt;</DataSourceConfig>
+        <DataSourceType>Connect.NPM.SolarWinds.Relations.DataSource</DataSourceType>
+        <Target>Connect.NPM.SolarWinds.MonitoringServer</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses />
+        <DiscoveryRelationships>
+          <DiscoveryRelationshipItem>
+            <TypeId>SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity</TypeId>
+            <Properties />
+          </DiscoveryRelationshipItem>
+        </DiscoveryRelationships>
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instancee462eb92125340868e37cfe247143ce5" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
       <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Id>Discover.NPM.Devices.Objects</Id>
         <DisplayName>Discover.NPM.Devices.Objects</DisplayName>

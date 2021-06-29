@@ -21,9 +21,7 @@ add-type -TypeDefinition @"
 [Net.ServicePointManager]::CertificatePolicy = New-Object -TypeName TrustAllCertsPolicy
 #endregion PREWORK
 
-$dbgLog = "C:\Temp\solarwinds-discover-debug-" + $MonitorItem +"-log"
-
-$api.LogScriptEvent('Connect.NPM.SolarWindsDiscoverNPMNodes.ps1',5000,4,"DiscoverNPMNodes Started - Source $($sourceId) managEnt $($managedEntityId) discoveryItem $discoveryItem registry Key $NPMRegPath `n SWITHCH: $($SwitchNamePattern) Core: $($CoreSwitchNamePattern) Aruba: $($ArubaControllerNamePattern) Router: $($RouterNamePattern)) FW: $($FireWallNamePattern) Other: $($OtherDeviceNamePattern)")
+#$api.LogScriptEvent('Connect.NPM.SolarWindsDiscoverNPMNodes.ps1',5000,4,"DiscoverNPMNodes Started - Source $($sourceId) managEnt $($managedEntityId) discoveryItem $discoveryItem registry Key $NPMRegPath `n SWITHCH: $($SwitchNamePattern) Core: $($CoreSwitchNamePattern) Aruba: $($ArubaControllerNamePattern) Router: $($RouterNamePattern)) FW: $($FireWallNamePattern) Other: $($OtherDeviceNamePattern)")
  
 $NPMRegPath               = 'HKLM:\' + $NPMRegPath
 $npmServerProtocoll       = Get-ItemProperty -Path $NPMRegPath | Select-Object -ExpandProperty NPMServerProtocoll
@@ -38,6 +36,14 @@ $npmQryPwd                = Get-ItemProperty -Path $NPMRegPath | Select-Object -
 $npmSecPwd  = ConvertTo-SecureString $npmQryPwd -AsPlainText -Force
 $npmCreds   = New-Object System.Management.Automation.PSCredential ($npmQryUsr, $npmSecPwd)
 
+$localComputerDomain        = ([System.DirectoryServices.ActiveDirectory.Domain]::GetComputerDomain()).Name
+$solarWindsMonitoringServer = $env:COMPUTERNAME + '.' + $localComputerDomain
+
+$healthInstance = $discoveryData.CreateClassInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthService']$")		
+$healthInstance.AddProperty("$MPElement[Name='Windows!Microsoft.Windows.Computer']/PrincipalName$", $solarWindsMonitoringServer)			
+$discoveryData.AddInstance($healthInstance)		
+
+
 $qrySQL     = "SELECT+NodeID,ObjectSubType,IPAddress,Caption,NodeDescription,Description,DNS,Vendor,SysObjectID,Location,"
 $qrySQL    += "Contact,Status,StatusDescription,IOSImage,IOSVersion,LastBoot,CPUCount,CPULoad,TotalMemory,"
 $qrySQL    += "PercentMemoryAvailable,MachineType,AgentPort,SNMPVersion,Community,IP,NodeName+"
@@ -45,7 +51,7 @@ $qrySQL    += "FROM+Orion.Nodes+WHERE+ObjectSubType='SNMP'"
 
 $npmFullUrl = $npmServerProtocoll + '://' + $npmServerName + ':' + $npmServerPort + '/' + $npmInformationServiceURL + 'query=' + $qrySQL
 
-$api.LogScriptEvent('Connect.NPM.SolarWindsDiscoverNPMNodes.ps1',5001,4,"DiscoverNPMNodes Qry URL: $npmFullUrl  with User: $npmQryUsr found pwd in $npmQryPwdPath " )
+#$api.LogScriptEvent('Connect.NPM.SolarWindsDiscoverNPMNodes.ps1',5001,4,"DiscoverNPMNodes Qry URL: $npmFullUrl  with User: $npmQryUsr found pwd in $npmQryPwdPath " )
 
 $npmQryRsp  = Invoke-RestMethod -Method Get -Uri $npmFullUrl -Credential $npmCreds -UseBasicParsing 
 
@@ -65,7 +71,7 @@ $npmQryRsp.results | ForEach-Object {
 	$nSysObjectID     = $_.SysObjectID		-as [string]
 	$nObjectSubType   = $_.ObjectSubType	-as [string]
 	$nMachineType     = $_.MachineType		-as [string]
-	$nLastBoot        =  "."
+	$nLastBoot        = $_.LastBoot			-as [string]
 	$nIOSImage        = $_.IOSImage			-as [string]
 	$nIOSVersion      = $_.IOSVersion		-as [string]
 	$nCPUCount        = $_.CPUCount			-as [string]
@@ -153,7 +159,11 @@ $npmQryRsp.results | ForEach-Object {
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/SNMPVersion$",$nSNMPVersion)
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/Community$",$nCommunity)			
 			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
-			$discoveryData.AddInstance($instance)					
+			
+			$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+			$relHealthInstance.Source = $healthInstance
+			$relHealthInstance.Target = $instance									
+			$discoveryData.AddInstance($relHealthInstance)
 		  break
 		}		
 		$SwitchNamePattern {
@@ -182,7 +192,11 @@ $npmQryRsp.results | ForEach-Object {
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/SNMPVersion$",$nSNMPVersion)
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/Community$",$nCommunity)
 			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
-			$discoveryData.AddInstance($instance)				
+			
+			$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+			$relHealthInstance.Source = $healthInstance
+			$relHealthInstance.Target = $instance									
+			$discoveryData.AddInstance($relHealthInstance)
 		  break
 		}		
 		$CoreSwitchNamePattern {
@@ -211,7 +225,11 @@ $npmQryRsp.results | ForEach-Object {
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/SNMPVersion$",$nSNMPVersion)
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/Community$",$nCommunity)
 			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
-			$discoveryData.AddInstance($instance)				
+			
+			$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+			$relHealthInstance.Source = $healthInstance
+			$relHealthInstance.Target = $instance									
+			$discoveryData.AddInstance($relHealthInstance)
 		  break
 		}
 		$FireWallNamePattern {		
@@ -240,7 +258,11 @@ $npmQryRsp.results | ForEach-Object {
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/SNMPVersion$",$nSNMPVersion)
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/Community$",$nCommunity)
 			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
-			$discoveryData.AddInstance($instance)				
+			
+			$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+			$relHealthInstance.Source = $healthInstance
+			$relHealthInstance.Target = $instance									
+			$discoveryData.AddInstance($relHealthInstance)
 		  break
 		}		
 		$ArubaControllerNamePattern {
@@ -269,7 +291,11 @@ $npmQryRsp.results | ForEach-Object {
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/SNMPVersion$",$nSNMPVersion)
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/Community$",$nCommunity)
 			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)	
-			$discoveryData.AddInstance($instance)				
+			
+			$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+			$relHealthInstance.Source = $healthInstance
+			$relHealthInstance.Target = $instance									
+			$discoveryData.AddInstance($relHealthInstance)
 		  break
 		}
 		$OtherDeviceNamePattern {		  
@@ -298,7 +324,11 @@ $npmQryRsp.results | ForEach-Object {
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/SNMPVersion$",$nSNMPVersion)
 			$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/Community$",$nCommunity)
 			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
-			$discoveryData.AddInstance($instance)				
+			
+			$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+			$relHealthInstance.Source = $healthInstance
+			$relHealthInstance.Target = $instance									
+			$discoveryData.AddInstance($relHealthInstance)
 			break
 		}
 
@@ -336,7 +366,7 @@ $npmQryRsp.results | ForEach-Object {
 	$nSysObjectID     = $_.SysObjectID		-as [string]
 	$nObjectSubType   = $_.ObjectSubType	-as [string]
 	$nMachineType     = $_.MachineType		-as [string]
-	$nLastBoot        = "."
+	$nLastBoot        = $_.LastBoot			-as [string]
 	$nIOSImage        = $_.IOSImage			-as [string]
 	$nIOSVersion      = $_.IOSVersion		-as [string]
 	$nCPUCount        = $_.CPUCount			-as [string]
@@ -373,28 +403,6 @@ $npmQryRsp.results | ForEach-Object {
 	$nNodeID = $nNodeID -replace ' ',''
 	$nNodeID = $nNodeID.Trim()
 
-		if ($nTotalMemory -ne '.') {
-		$nTotalMemoryOrg = ''
-		$nTotalMemoryOrg = $nTotalMemory
-		[int64]$rndMem   = 0
-		$nTotalMemory    = $nTotalMemory -as [int64]
-		$nTotalMemory    = $nTotalMemory.ToString()
-		$nMemLen         = $nTotalMemory.Length
-		if ($nMemLen -gt 3) {
-			$tmpFourNum   = ($nTotalMemory.Substring(0,4)) -as [int64]
-			$tmpMissNum   = ($nMemLen - 4) -as [int64]
-			$tmpSuffNum   = ([math]::Pow(10,$tmpMissNum)) -as [int64]
-			$rndMem       = $tmpFourNum * $tmpSuffNum
-			$nTotalMemory = ''
-			$nTotalMemory = $rndMem.ToString()
-		}
-	}
-
-	$supplement2 = "IPAddress:$nIPAddress; IP:$IP; NodeDescription:$nNodeDescription; DNS:$nDNS; Vendor:$nVendor; Contact:$nContact; Location:$nContact; SysOb:$nSysObjectID; ObjectSubType:$nObjectSubType; MachineType:$nMachineType; IOI:$nIOSImage; IOV:$nIOSVersion; CPUC:$nCPUCount; mem:$nTotalMemory; APort:$nAgentPort; SVer: $nSNMPVersion; Com:$nCommunity  "
-
-	"DISCOVERY SEND BAG Key:$($nNodeID);NodeCaption:$($nCaption);DisplayName:$($DisplayName);Supplement:$($supplement2) " | Out-File -FilePath $dbgLog -Append	
-	
-
 	$displayName = 'ICMPEndPoint-' + $nCaption			
 	$instance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.NPM.SolarWinds.ICMPEndPoint']$")			
 	$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/NodeID$",$nNodeID)
@@ -420,10 +428,15 @@ $npmQryRsp.results | ForEach-Object {
 	$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/SNMPVersion$",$nSNMPVersion)
 	$instance.AddProperty("$MPElement[Name='Connect.NPM.SolarWinds.Node']/Community$",$nCommunity)
 	$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
-	$discoveryData.AddInstance($instance)				
+	
+	$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+	$relHealthInstance.Source = $healthInstance
+	$relHealthInstance.Target = $instance									
+	$discoveryData.AddInstance($relHealthInstance)
+	
 	
 } #END $npmQryRsp.results | ForEach-Object 
 
-if ($error) { $error | Out-File -FilePath $dbgLog -Append }
 
 $discoveryData
+
